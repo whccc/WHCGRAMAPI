@@ -6,6 +6,9 @@ const app = express();
 //
 app.use(express.json({ limit: '10mb' }));
 app.use(cors());
+//EXPONER RUTA IMG
+app.use('/api/public', express.static(`${__dirname}/storage/profile`));
+app.use('/api/public', express.static(`${__dirname}/storage/post`));
 
 //ROTES
 app.use('/api', Routers);
