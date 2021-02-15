@@ -30,6 +30,9 @@ module.exports = {
       throw Error;
     }
   },
+  //--------------------
+  // VALIDAR LOGIN USER
+  //--------------------
   async MDFindUser({ strUser, strPassword }) {
     try {
       const Data = await MDUserSchema.findOne({
@@ -37,6 +40,16 @@ module.exports = {
         strPassword
       });
       return Data;
+    } catch (Error) {
+      throw Error;
+    }
+  },
+  //-----------
+  // GET USERS
+  //-----------
+  async MDFindUsersAsync() {
+    try {
+      return await MDUserSchema.find({});
     } catch (Error) {
       throw Error;
     }
