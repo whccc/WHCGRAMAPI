@@ -48,5 +48,29 @@ module.exports = {
         Success: false
       });
     }
+  },
+  async AddRoomsToUserAsync({ _id, ArrayMembers }) {
+    try {
+      await ArrayMembers.forEach(async (User) => {
+        await MDUser.MDaddRoomToUsers({ idRoom: _id, idUser: User.IdUser });
+      });
+    } catch (Error) {
+      console.log(Error);
+    }
+  },
+
+  async GetRoomsByUserAsync(req, res) {
+    try {
+      console.log(req.params);
+      const Data = await MDUser.MDGetRoomsByUserAsync(req.params);
+      res.status(200).json({
+        Success: true,
+        DataRoomsUser: Data
+      });
+    } catch (Error) {
+      res.status(500).json({
+        Success: false
+      });
+    }
   }
 };

@@ -20,7 +20,16 @@ const User = new Schema({
     type: String,
     trim: true,
     required: true
-  }
+  },
+  ArrayRooms: [
+    {
+      strIdRoom: {
+        type: Schema.Types.ObjectId,
+        ref: 'Rooms',
+        trim: true
+      }
+    }
+  ]
 });
 
 module.exports = model('User', User);

@@ -4,7 +4,8 @@ const router = express.Router();
 const {
   RegisterUserAsync,
   LoginUserAsync,
-  GetUsersAsync
+  GetUsersAsync,
+  GetRoomsByUserAsync
 } = require('./Controller');
 
 router
@@ -12,5 +13,5 @@ router
   .post(uploadImg.single('URLImgPerson'), RegisterUserAsync)
   .get(GetUsersAsync);
 router.route('/StartSesion').post(LoginUserAsync);
-
+router.route('/GetRoomUser/:_idUser').get(GetRoomsByUserAsync);
 module.exports = router;

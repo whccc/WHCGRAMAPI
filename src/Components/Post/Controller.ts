@@ -1,3 +1,4 @@
+export {};
 const MDPost = require('./Model');
 module.exports = {
   //------------

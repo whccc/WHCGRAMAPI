@@ -3,8 +3,7 @@ const { Schema, model } = require('mongoose');
 const Room = new Schema({
   _idRoom: {
     type: String,
-    trim: true,
-    required: true
+    trim: true
   },
   strType: {
     type: String,
@@ -24,6 +23,7 @@ const Room = new Schema({
   ArrayMessages: {
     type: Array,
     trim: true,
+    default: [],
     required: true
   }
 });
